@@ -59,7 +59,6 @@ class BobTest < Minitest::Test
   end
 
   def test_question_with_only_numbers
-    skip
     remark = "4?"
     assert_equal 'Sure.', Bob.hey(remark), %q{Bob hears "4?", and..}
   end
