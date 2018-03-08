@@ -12,23 +12,29 @@ class Sentence
   attr_reader :sentence
 
   def initialize(sentence)
-    @sentence = sentence.gsub(/[\d(:)\s),]/, "")
+    @sentence = sentence
   end
 
   def is_yell?
-    sentence.upcase == sentence && sentence != '?'
+    cleaned_sentence.upcase == cleaned_sentence && cleaned_sentence != '?'
   end
 
   def is_question?
-    sentence[-1] == '?'
+    cleaned_sentence[-1] == '?'
   end
 
   def is_empty?
-    altered_sentence = sentence.gsub(/,\s/, "")
+    altered_sentence = cleaned_sentence.gsub(/,\s/, "")
     altered_sentence.empty?
   end
 
   def is_regular?
     is_empty? || (!is_question? && !is_yell?)
+  end
+
+  private
+
+  def cleaned_sentence
+    sentence.gsub(/[\d(:)\s),]/, "")
   end
 end
