@@ -14,7 +14,6 @@ class BobTest < Minitest::Test
   end
 
   def test_shouting_gibberish
-    skip
     remark = "FCECDFCAAB"
     assert_equal 'Whoa, chill out!', Bob.hey(remark), %q{Bob hears "FCECDFCAAB", and..}
   end
