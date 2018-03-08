@@ -2,6 +2,7 @@ class Bob
   def self.hey(phrase)
     sentence = Sentence.new phrase
 
+    return 'Fine. Be that way!' if sentence.is_empty?
     return 'Whatever.' if sentence.is_regular?
     return 'Whoa, chill out!' if sentence.is_yell?
     return 'Sure.' if sentence.is_question?
@@ -24,17 +25,16 @@ class Sentence
   end
 
   def is_empty?
-    altered_sentence = cleaned_sentence.gsub(/,\s/, "")
-    altered_sentence.empty?
+    sentence.empty?
   end
 
   def is_regular?
-    is_empty? || (!is_question? && !is_yell?)
+    cleaned_sentence.gsub(/,\s/, "").empty? || (!is_question? && !is_yell?)
   end
 
   private
 
   def cleaned_sentence
-    sentence.gsub(/[\d(:)\s),]/, "")
+    sentence.gsub(/[\d(:)\s),\s]/, "")
   end
 end
