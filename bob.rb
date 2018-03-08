@@ -1,8 +1,10 @@
 class Bob
   def self.hey(phrase)
     sentence = Sentence.new phrase
-    return "Whoa, chill out!" if sentence.is_yell?
-    "Whatever."
+
+    return 'Whoa, chill out!' if sentence.is_yell?
+    return 'Sure.' if sentence.is_question?
+    'Whatever.'
   end
 end
 
@@ -14,6 +16,10 @@ class Sentence
   end
 
   def is_yell?
-    sentence[-1] == "!" || sentence.upcase == sentence
+    sentence[-1] == '!' || sentence.upcase == sentence
+  end
+
+  def is_question?
+    sentence[-1] == '?'
   end
 end
