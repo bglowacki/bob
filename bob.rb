@@ -16,7 +16,7 @@ class Sentence
   end
 
   def is_yell?
-    sentence.upcase == sentence
+    sentence.upcase == sentence && sentence != '?'
   end
 
   def is_question?
