@@ -12,7 +12,7 @@ class Sentence
   attr_reader :sentence
 
   def initialize(sentence)
-    @sentence = sentence.gsub(/\d/, "")
+    @sentence = sentence.gsub(/[\d(:)\s),]/, "")
   end
 
   def is_yell?

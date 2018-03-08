@@ -64,31 +64,26 @@ class BobTest < Minitest::Test
   end
 
   def test_shouting_with_special_characters
-    skip
     remark = "ZOMG THE %^*@\#$(*^ ZOMBIES ARE COMING!!11!!1!"
     assert_equal 'Whoa, chill out!', Bob.hey(remark), %q{Bob hears "ZOMG THE %^*@\#$(*^ ZOMBIES ARE COMING!!11!!1!", and..}
   end
 
   def test_shouting_with_no_exclamation_mark
-    skip
     remark = "I HATE YOU"
     assert_equal 'Whoa, chill out!', Bob.hey(remark), %q{Bob hears "I HATE YOU", and..}
   end
 
   def test_statement_containing_question_mark
-    skip
     remark = "Ending with ? means a question."
     assert_equal 'Whatever.', Bob.hey(remark), %q{Bob hears "Ending with ? means a question.", and..}
   end
 
   def test_non_letters_with_question
-    skip
     remark = ":) ?"
     assert_equal 'Sure.', Bob.hey(remark), %q{Bob hears ":) ?", and..}
   end
 
   def test_prattling_on
-    skip
     remark = "Wait! Hang on. Are you going to be OK?"
     assert_equal 'Sure.', Bob.hey(remark), %q{Bob hears "Wait! Hang on. Are you going to be OK?", and..}
   end
